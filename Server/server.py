@@ -29,11 +29,11 @@ FROM
 
 results = bigquery_client.query(test_query)
 df = results.to_dataframe()
+print(df)
 
-rows = list(results)
+#Turns the BigQuery table into dictionary
+data = df.to_dict(orient="records")
 
-#Turn the Rows of data into a dictionary of data
-data = [{'name': row['Name'],  'cost': row['Cost'], 'mana_symbols': row['Mana_Symbols'] ,'type': row['Type']} for row in results]
 
 
 
@@ -49,7 +49,7 @@ def return_home():
         'message': "Willy Wonka!",
         'people': ['John', 'Lisa', 'Billy'],
         'table' : data
-    })
+    }) 
 
 
 if __name__ == "__main__":

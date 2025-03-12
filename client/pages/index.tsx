@@ -22,24 +22,35 @@ function index() {
   //Table shows errors however the code functions as intended. Errors shown because the values do not exist in current script
   return (
     <div>
-      <div>{message}</div>
+       {/* <div>{message}</div>
       {people.map((person, index) => (
           <div key={index}>
             {person}
           </div>
-        ))}     
+        ))}      */}
 
-     <div>
-     {table.map((item, index) =>(
-          <div key = {index}>
-            {item.name}
-            {item.cost}
-            {item.mana_symbols}
-            {item.type}
-          </div>
-      ))};
+     <div> 
+      <h4>Magic the Gathering</h4>
+      <table border="1">
+        <thead>
+          <tr  style={{ padding: "10px", border: "1.5px solid #ddd", textAlign: "left" }}>
+            <th>Name</th>
+            <th>Mana_Symbols</th>
+            <th>Name</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          {table.map((item, index) =>(
+            <tr key = {index}>
+             {Object.values(item).map((value,idx)=>(
+              <td key={idx} style={{ padding: "10px", border: "1px solid #ddd", textAlign: "left" }}>{value}</td>
+             ))}
+            </tr>
+          ))}      
+        </tbody>
+      </table>
      </div>
-
     </div>
   );
 }

@@ -2,7 +2,13 @@ import React, {useEffect, useState} from 'react'
 
 function Index() {
 
-  const[table, setTable] = useState([]);
+  type Card = {
+    Cost: number;
+    Mana_Symbols: number;
+    Name: string
+    Type: string;
+  }
+  const[table, setTable] = useState<Card[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:8080/api/home").then(
@@ -27,10 +33,10 @@ function Index() {
 
      <div> 
       <h4>Magic the Gathering</h4>
-      <table border="1">
+      <table>
         <thead>
           <tr  style={{ padding: "10px", border: "1.5px solid #ddd", textAlign: "left" }}>
-            <th>Name</th>
+            <th>Cost</th>
             <th>Mana_Symbols</th>
             <th>Name</th>
             <th>Type</th>
@@ -40,7 +46,7 @@ function Index() {
           {table.map((item, index) =>(
             <tr key = {index}>
              {Object.values(item).map((value,idx)=>(
-              <td key={idx} style={{ padding: "10px", border: "1px solid #ddd", textAlign: "left" }}>{value}</td>
+              <td key={idx} style={{ padding: "10px", border: "1px solid #ddd", textAlign: "left" }}>{value ?? '-'}</td>
              ))}
             </tr>
           ))}      

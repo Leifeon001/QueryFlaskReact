@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function index() {
+function Index() {
 
   const[table, setTable] = useState([]);
 
@@ -51,4 +51,4 @@ function index() {
   );
 }
 
-export default index
+export default Index

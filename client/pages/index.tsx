@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react'
 
 function index() {
 
-  const[message, setMessage] = useState("Loading");
-  const[people, setPeople] = useState([]);
   const[table, setTable] = useState([]);
 
   useEffect(() => {
@@ -13,8 +11,6 @@ function index() {
       // message = Loading 
       //once data retrieved 
       // message = data.message
-      setMessage(data.message);
-      setPeople(data.people);
       setTable(data.table);
     });
   }, []);

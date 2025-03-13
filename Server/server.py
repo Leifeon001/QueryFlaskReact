@@ -45,9 +45,7 @@ CORS(app)
 #/api/home
 @app.route("/api/home", methods=['GET'])
 def return_home():
-    return jsonify({
-        'message': "Willy Wonka!",
-        'people': ['John', 'Lisa', 'Billy'],
+    return jsonify({      
         'table' : data
     }) 
 
